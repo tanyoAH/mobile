@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import strftime from 'strftime';
 
 import { ListItem, Right, Body, Text } from 'native-base';
 
@@ -9,7 +10,7 @@ export default class ItineraryItem extends React.Component {
         name: PropTypes.string,
         location: PropTypes.string,
         members: PropTypes.number,
-        time: PropTypes.string,
+        time: PropTypes.Object,
         onPress: PropTypes.func,
     };
 
@@ -27,7 +28,7 @@ export default class ItineraryItem extends React.Component {
                     <Text note>{members} people going</Text>
                 </Body>
                 <Right>
-                    <Text>{time}</Text>
+                    <Text>{strftime('%I:%M', new Date(time.start))} - {strftime('%I:%M', new Date(time.end))}</Text>
                 </Right>
             </ListItem>
         );

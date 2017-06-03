@@ -7,11 +7,11 @@ export default class BudgetSlider extends React.Component {
          budget: null,
     };
 
-    getValue = () => this.state.budget;
+    getValue = () => parseInt(this.state.budget, 10);
 
     handleBudgetChange = (text) => {
         this.setState({
-            budget: parseInt(text, 10),
+            budget: text,
         })
     };
 
@@ -33,13 +33,6 @@ export default class BudgetSlider extends React.Component {
                         value={budget}
                     />
                 </Item>
-                {/*<Slider*/}
-                    {/*style={{ zIndex: 10}}*/}
-                    {/*value={budget}*/}
-                    {/*minimumValue={0}*/}
-                    {/*maximumValue={500}*/}
-                    {/*step={10}*/}
-                {/*/>*/}
             </Row>
         );
     }

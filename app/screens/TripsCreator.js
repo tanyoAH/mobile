@@ -3,6 +3,7 @@ import { Container, Content, Button, Icon, Body, Title, Header, Left, Grid, Col,
 import LocationMap from '../components/tripsCreator/LocationMap';
 import DatePicker from '../components/tripsCreator/DatePicker';
 import BudgetSlider from '../components/tripsCreator/BudgetSlider';
+import { createTrip } from '../http';
 
 export default class TripsCreatorScreen extends React.Component {
 
@@ -10,14 +11,32 @@ export default class TripsCreatorScreen extends React.Component {
         this.props.history.goBack();
     };
 
-    handleTripAdd = () => {
+    handleTripAdd = async () => {
         const coordinates = this.map.getValue();
         const startDate = this.startDate.getValue();
         const endDate = this.endDate.getValue();
         const budget = this.budget.getValue();
         if (coordinates && startDate && endDate && budget) {
-            this.props.history.push('/');
+            try {
+                await createTrip({
+                    coordinates: {
+                        x: coordinates.longitude,
+                        y: coordinates.latitude,
+                    },
+                    timePeriod: {
+                        start: startDate.getTime(),
+                        end: endDate.getTime(),
+                    },
+                    activityBudget: budget,
+                    maxDistance: 5,
+                });
+                this.props.history.push('/');
+            } catch (err) {
+                console.log(err);
+            }
         }
+
+
     };
 
     render() {

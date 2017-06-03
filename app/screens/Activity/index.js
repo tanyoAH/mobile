@@ -2,8 +2,15 @@ import React from 'react';
 import { Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
 import OverviewTab from './OverviewTab';
 import UsersTab from './UsersTab';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setActivityId } from '../../actions/trips';
 
-export default class Activity extends React.Component {
+class Activity extends React.Component {
+
+    componentDidMount() {
+        this.props.setActivityId(this.props.match.params.activityId);
+    }
 
     handleBackPress = () => {
         this.props.history.goBack();
@@ -57,3 +64,11 @@ export default class Activity extends React.Component {
     }
 
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators({
+        setActivityId,
+    }, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(Activity);

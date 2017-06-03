@@ -1,15 +1,20 @@
 import React from 'react';
 import { Container, Header, Tabs, Tab, Button, Title, Left, Icon, Body, TabHeading, Text } from 'native-base';
 import { connect } from 'react-redux';
-import { selectTripTab } from '../../selectors';
+import { setTripId } from '../../actions/trips';
+import { bindActionCreators } from 'redux';
 import ItineraryTab from './ItineraryTab';
 import ActivitiesTab from './ActivitiesTab';
 
 class Trip extends React.Component {
 
+    componentDidMount() {
+        this.props.setTripId(this.props.match.params.tripId);
+    }
+
     handleBackPress = () => {
         this.props.history.goBack();
-    }
+    };
 
     render() {
 
@@ -52,4 +57,10 @@ class Trip extends React.Component {
     }
 }
 
-export default Trip;
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators({
+        setTripId,
+    }, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(Trip);

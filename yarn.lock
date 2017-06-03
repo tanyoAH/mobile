@@ -3175,6 +3175,12 @@ react-native-animatable@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.2.1.tgz#2758326b298dddecc8c065446f4185174bdaa4e3"
 
+react-native-carousel@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-carousel/-/react-native-carousel-0.10.0.tgz#f4becc5ff46f66585d0ec9e42dce1efb1d7e571a"
+  dependencies:
+    react-timer-mixin "^0.13.3"
+
 react-native-drawer@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.3.0.tgz#a0369ec80ff0b61c9f152dbdea91fe76c843113a"

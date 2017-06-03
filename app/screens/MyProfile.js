@@ -5,9 +5,9 @@ import UserProfile from '../components/profile/UserProfile';
 
 class MyProfileScreen extends React.Component {
 
-    static navigationOptions = {
-        title: 'My Profile',
-    };
+    componentDidMount() {
+
+    }
 
     render() {
         return (

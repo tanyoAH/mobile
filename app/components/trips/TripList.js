@@ -1,23 +1,38 @@
 import React from 'react';
 import TripItem from './TripItem';
-import { View } from 'native-base';
+import { View, Text } from 'native-base';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectTrips } from '../../selectors';
 
 class TripList extends React.Component {
 
     render() {
+        const { trips } = this.props;
+        console.log(trips);
+
         return (
             <View>
-                <TripItem
-                    imageUrl="http://www.asciify.net/ascii/thumb/4454/asdasd.png"
-                    startDate="June 1"
-                    endDate="June 2"
-                    hourlyBudget={100}
-                    location="Hong Kong"
-                />
+                {!trips.length &&
+                    <Text style={{ textAlign: 'center', marginTop: 15 }}>No Trips Found!</Text>
+                }
+                {trips.map((trip) =>
+                    <TripItem
+                        key={trip.id}
+                        id={trip.id}
+                        location={trip.locationName}
+                        timePeriod={trip.timePeriod}
+                        hourlyBudget={trip.activityBudget}
+                    />
+                )}
             </View>
         )
     }
 
 }
 
-export default TripList;
+const mapStateToProps = createStructuredSelector({
+    trips: selectTrips(),
+});
+
+export default connect(mapStateToProps)(TripList);

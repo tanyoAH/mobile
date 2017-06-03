@@ -1,13 +1,14 @@
 import React from 'react';
-import { View } from 'native-base';
+import { Container } from 'native-base';
+import ActivitiesCarousel from '../../components/trips/ActivitiesCarousel';
 
 export default class ActivitiesTab extends React.Component {
 
     render() {
         return (
-            <View>
-
-            </View>
+            <Container>
+                <ActivitiesCarousel />
+            </Container>
         )
     }
 }
