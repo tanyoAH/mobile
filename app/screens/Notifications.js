@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'native-base';
-import FooterTabs from '../navigators/FooterTabs';
+import FooterTabs from '../components/FooterTabs';
 
 export default class NotificationsScreen extends React.Component {
 
