@@ -1,9 +1,13 @@
-import IndexScreen from './screens/Index';
 import { StackNavigator } from 'react-navigation';
+import MyProfileScreen from './screens/MyProfile';
+import TripsScreen from './screens/Trips';
 
 
 export default StackNavigator({
-    Index: {
-        screen: IndexScreen,
-    }
+    Trips: {
+        screen: TripsScreen,
+    },
+    MyProfile: {
+        screen: MyProfileScreen,
+    },
 });
