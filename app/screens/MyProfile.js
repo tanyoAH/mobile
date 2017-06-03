@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Content, Container } from 'native-base';
+import FooterTabs from '../navigators/FooterTabs';
 
-export default class MyProfileScreen extends React.Component {
+class MyProfileScreen extends React.Component {
 
     static navigationOptions = {
         title: 'My Profile',
@@ -9,7 +10,15 @@ export default class MyProfileScreen extends React.Component {
 
     render() {
         return (
-            <Text>Hello World!</Text>
+            <Container>
+                <Content>
+
+                </Content>
+                <FooterTabs />
+            </Container>
         )
     }
 }
+
+export default MyProfileScreen;
+
