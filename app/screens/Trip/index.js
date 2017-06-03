@@ -12,7 +12,6 @@ class Trip extends React.Component {
     };
 
     render() {
-        const { tab } = this.props;
 
         return (
             <Container>
@@ -30,7 +29,7 @@ class Trip extends React.Component {
                     <Tab
                         heading={
                             <TabHeading>
-                                <Icon name="" />
+                                <Icon name="md-list-box" />
                                 <Text>Itinerary</Text>
                             </TabHeading>
                         }
@@ -40,7 +39,7 @@ class Trip extends React.Component {
                     <Tab
                         heading={
                             <TabHeading>
-                                <Icon name="" />
+                                <Icon name="md-partly-sunny" />
                                 <Text>Activities</Text>
                             </TabHeading>
                         }
