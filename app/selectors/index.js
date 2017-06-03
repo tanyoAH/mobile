@@ -16,3 +16,13 @@ export const selectConfirmedActivities = () => createSelector(
     selectMainDomain(),
     (state) => state.get('confirmedActivities').toJS(),
 );
+
+export const selectTripId = () => createSelector(
+    selectMainDomain(),
+    (state) => state.get('tripId'),
+);
+
+export const selectActivityId = () => createSelector(
+    selectMainDomain(),
+    (state) => state.get('activityId'),
+);
