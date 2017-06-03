@@ -15,6 +15,7 @@ class TripsScreen extends React.Component {
                         <Title>Header</Title>
                     </Body>
                 </Header>
+                <Header/>
                 <Content>
                     <TripList />
                 </Content>

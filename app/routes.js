@@ -3,7 +3,7 @@ import MyProfileScreen from './screens/MyProfile';
 import NotificationsScreen from './screens/Notifications';
 import TripsScreen from './screens/Trips';
 import TripsCreatorScreen from './screens/TripsCreator';
-import TripScreen from './screens/Trip';
+import TripScreen from './screens/Trip/index';
 import React from 'react';
 
 export default () => (

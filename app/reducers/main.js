@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
+    tripTab: 'itinerary', // or activities
 
 });
 

@@ -2,7 +2,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 import Routes from './routes';
-import { Container } from 'native-base';
+import { StyleProvider } from 'native-base';
+
+const customTheme = {
+
+}
 
 export default class App extends React.Component {
 
