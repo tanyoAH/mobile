@@ -4,19 +4,22 @@ import {
     SET_CONFIRMED_ACTIVITIES,
     SET_ACTIVITY_ID,
     SET_TRIP_ID,
+    SET_TRIPS_LOADING,
 } from '../actions/trips';
 
 const initialState = fromJS({
-    tripTab: 'itinerary', // or activities
     trips: [],
     confirmedActivities: [],
     tripId: null,
     activityId: null,
+    tripsLoading: false,
 });
 
 export default (state = initialState, action) => {
 
     switch (action.type) {
+        case SET_TRIPS_LOADING:
+            return state.set('tripsLoading', action.loading);
         case SET_ACTIVITY_ID:
             return state.set('activityId', action.activityId);
         case SET_TRIP_ID:

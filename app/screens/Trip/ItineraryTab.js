@@ -2,17 +2,9 @@ import React from 'react';
 import { List, View } from 'native-base';
 import ItineraryItem from '../../components/trips/ItineraryItem'
 import { withRouter } from 'react-router-native';
-import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { bindActionCreators } from 'redux';
-import { selectConfirmedActivities } from '../../selectors';
-import { setConfirmedActivities } from '../../actions/trips';
 
 class ItineraryTab extends React.Component {
-
-    componentDidMount() {
-
-    }
 
     handleItemPress = (id) => () => {
         this.props.history.push(`/activities/${id}`)
@@ -38,13 +30,4 @@ class ItineraryTab extends React.Component {
     }
 }
 
-const mapStateToProps = createStructuredSelector({
-    activities: selectConfirmedActivities(),
-});
-const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators({
-        setConfirmedActivities,
-    }, dispatch),
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ItineraryTab));
+export default withRouter(ItineraryTab);

@@ -5,11 +5,25 @@ import { setTripId } from '../../actions/trips';
 import { bindActionCreators } from 'redux';
 import ItineraryTab from './ItineraryTab';
 import ActivitiesTab from './ActivitiesTab';
+import { getTrip } from '../../http';
 
 class Trip extends React.Component {
 
-    componentDidMount() {
-        this.props.setTripId(this.props.match.params.tripId);
+    state = {
+        trip: null,
+    }
+
+    async componentDidMount() {
+        const tripId = this.props.match.params.tripId;
+        this.props.setTripId(tripId);
+        try {
+            const { data: { data }} = await getTrip(tripId);
+            this.setState({
+                trip: data,
+            })
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     handleBackPress = () => {
@@ -17,6 +31,8 @@ class Trip extends React.Component {
     };
 
     render() {
+        const { trip } = this.state;
+        console.log(trip);
 
         return (
             <Container>
@@ -27,7 +43,7 @@ class Trip extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title></Title>
+                        <Title>{trip && trip.locationName}</Title>
                     </Body>
                 </Header>
                 <Tabs>
@@ -39,7 +55,9 @@ class Trip extends React.Component {
                             </TabHeading>
                         }
                     >
-                        <ItineraryTab />
+                        <ItineraryTab
+                            activities={trip ? trip.activities : []}
+                        />
                     </Tab>
                     <Tab
                         heading={
@@ -49,7 +67,8 @@ class Trip extends React.Component {
                             </TabHeading>
                         }
                     >
-                        <ActivitiesTab />
+                        <ActivitiesTab
+                        />
                     </Tab>
                 </Tabs>
             </Container>

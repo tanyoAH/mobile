@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Image, View, Text } from 'react-native';
 import { Link, withRouter } from 'react-router-native';
 import { Card, CardItem, Left, Icon, Body } from 'native-base';
+import strftime from 'strftime';
 
 class TripItem extends React.Component {
 
     static propTypes = {
         id: PropTypes.string,
-        startDate: PropTypes.string,
-        endDate: PropTypes.string,
+        timePeriod: PropTypes.object,
         hourlyBudget: PropTypes.number,
         location: PropTypes.string,
         imageUrl: PropTypes.string,
@@ -17,7 +17,8 @@ class TripItem extends React.Component {
     };
 
     render() {
-        const { location, startDate, endDate, hourlyBudget, imageUrl, id } = this.props;
+        const { location, timePeriod, hourlyBudget, imageUrl, id } = this.props;
+
 
         return (
             <Card>
@@ -32,18 +33,12 @@ class TripItem extends React.Component {
                         </Body>
                     </Left>
                 </CardItem>
-                <CardItem cardBody>
-                    <Image
-                        resizeMode="contain"
-                        source={{uri: imageUrl}}
-                    />
-                </CardItem>
                 <CardItem>
                     <Icon name="md-calendar" />
                     <Text
                         style={{ marginRight: 10 }}
                     >
-                        {startDate} - {endDate}
+                        {strftime('%b %d', new Date(timePeriod.start))} - {strftime('%b %d', new Date(timePeriod.end))}
                         </Text>
                     <Icon name="md-cash" />
                     <Text>{hourlyBudget} / h</Text>

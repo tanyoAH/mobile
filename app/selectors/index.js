@@ -26,3 +26,8 @@ export const selectActivityId = () => createSelector(
     selectMainDomain(),
     (state) => state.get('activityId'),
 );
+
+export const selectTripsLoading = () => createSelector(
+    selectMainDomain(),
+    (state) => state.get('tripsLoading'),
+);

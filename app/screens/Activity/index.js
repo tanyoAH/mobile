@@ -5,6 +5,8 @@ import UsersTab from './UsersTab';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setActivityId } from '../../actions/trips';
+import { selectActivityId, selectTripId } from '../../selectors';
+import { createStructuredSelector } from 'reselect';
 
 class Activity extends React.Component {
 
@@ -21,6 +23,8 @@ class Activity extends React.Component {
     };
 
     render() {
+        const { activityId, tripId } = this.props;
+
         return (
             <Container>
                 <Header hasTabs>
@@ -46,7 +50,10 @@ class Activity extends React.Component {
                             </TabHeading>
                         }
                     >
-                        <OverviewTab />
+                        <OverviewTab
+                            tripId={tripId}
+                            activityId={activityId}
+                        />
                     </Tab>
                     <Tab
                         heading={
@@ -56,7 +63,10 @@ class Activity extends React.Component {
                             </TabHeading>
                         }
                     >
-                        <UsersTab />
+                        <UsersTab
+                            tripId={tripId}
+                            activityId={activityId}
+                        />
                     </Tab>
                 </Tabs>
             </Container>
@@ -65,10 +75,14 @@ class Activity extends React.Component {
 
 }
 
+const mapStateToProps = createStructuredSelector({
+    tripId: selectTripId(),
+    activityId: selectActivityId(),
+});
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators({
         setActivityId,
     }, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(Activity);
+export default connect(mapStateToProps, mapDispatchToProps)(Activity);

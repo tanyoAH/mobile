@@ -1,19 +1,21 @@
 import React from 'react';
 import TripItem from './TripItem';
-import { View, Text } from 'native-base';
+import { View, Text, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectTrips } from '../../selectors';
+import { selectTrips, selectTripsLoading } from '../../selectors';
 
 class TripList extends React.Component {
 
     render() {
-        const { trips } = this.props;
-        console.log(trips);
+        const { tripsLoading, trips } = this.props;
 
         return (
             <View>
-                {!trips.length &&
+                {tripsLoading &&
+                    <Spinner />
+                }
+                {!trips.length && !tripsLoading &&
                     <Text style={{ textAlign: 'center', marginTop: 15 }}>No Trips Found!</Text>
                 }
                 {trips.map((trip) =>
@@ -33,6 +35,7 @@ class TripList extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
     trips: selectTrips(),
+    tripsLoading: selectTripsLoading(),
 });
 
 export default connect(mapStateToProps)(TripList);
