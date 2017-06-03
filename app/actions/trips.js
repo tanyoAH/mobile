@@ -5,6 +5,18 @@ export const SET_CONFIRMED_ACTIVITIES = 'SET_CONFIRMED_ACTIVITIES';
 export const SET_TRIP_ID = 'SET_TRIP_ID';
 export const SET_ACTIVITY_ID = 'SET_ACTIVITY_ID';
 export const SET_TRIPS_LOADING = 'SET_TRIPS_LOADING';
+export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
+export const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
+
+export const removeNotification = (notifId) => ({
+    type: REMOVE_NOTIFICATION,
+    id: notifId,
+});
+
+export const addNotification = (notif) => ({
+    type: ADD_NOTIFICATION,
+    notification: notif,
+});
 
 export const setTrips = (trips) => ({
     type: SET_TRIPS,
