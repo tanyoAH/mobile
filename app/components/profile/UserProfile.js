@@ -30,34 +30,34 @@ class UserProfile extends Component {
             </View>
         )
         return (
-            <View>
-                <View style={styles.container}>
-                    <Card style={styles.interestsCard}>
-                        <CardItem>
-                          <Body style={{alignItems: 'center'}}>
-                            <Text style={styles.nameText}>{this.props.name}</Text>                            
-                            <View style={{flexDirection: 'row'}}>
-                                <View><Text style={styles.detailText}>{`${this.props.age}, `}</Text></View>
-                                <View><Icon style={styles.detailIcon} name='pin'/></View>
-                                <View><Text style={styles.detailText}>{this.props.from}</Text></View>
-                            </View>
-                            <Text style={styles.aboutText}>{`"${this.props.about}"`}</Text>                            
-                          </Body>
-                        </CardItem>
-                        <CardItem>
-                          <Body>
-                            <View style={{alignItems: 'flex-start'}}>
-                                <Text>My Interests</Text>
-                            </View>
-                            <View style={{flexDirection: 'row', flex: 1, flexWrap: 'wrap'}}>
-                                {interests}
-                            </View>
-                          </Body>
-                        </CardItem>
-                    </Card>
-                    <View style={{position: 'absolute',  left: 0, right: 0, top: 6, justifyContent: 'center', alignItems: 'center', elevation: 999}}>
-                        <Image source={require('../../img/kris.jpg')} style={styles.image}/>                        
-                    </View>                                      
+            <View style={styles.container}>
+                <Card style={styles.interestsCard}>
+                    <CardItem>
+                      <Body style={{alignItems: 'center'}}>
+                        <Text style={styles.nameText}>{this.props.name}</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <View><Text style={styles.detailText}>{`${this.props.age}, `}</Text></View>
+                            <View><Icon style={styles.detailIcon} name='pin'/></View>
+                            <View><Text style={styles.detailText}>{this.props.from}</Text></View>
+                        </View>
+                        <Text style={styles.aboutText}>{`"${this.props.about}"`}</Text>
+                      </Body>
+                    </CardItem>
+                    <CardItem>
+                      <Body>
+                        <View style={{alignItems: 'flex-start'}}>
+                            <Text>My Interests</Text>
+                        </View>
+                        <View style={{flexDirection: 'row', flex: 1, flexWrap: 'wrap'}}>
+                            {interests}
+                        </View>
+                      </Body>
+                    </CardItem>
+                </Card>
+                <View style={{position: 'absolute',  left: 0, right: 0, top: 6, justifyContent: 'center', alignItems: 'center', elevation: 999}}>
+                    <Image source={{
+                        uri: this.props.profileUrl,
+                    }} style={styles.image}/>
                 </View>
             </View>
         )
@@ -107,17 +107,11 @@ var styles = {
       marginLeft: 4,
       color: '#888888'
   },
-  intrestsText: {
-      fontSize: 30,
-      fontWeight : 'bold',
-      marginTop: 10
-  },
   interestsCard: {
       width: 320,
       marginTop: 90,
       zIndex: 0,
       overflow: 'visible',
-
   }
 }
 
