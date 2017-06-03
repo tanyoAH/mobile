@@ -9,6 +9,10 @@ export default class Activity extends React.Component {
         this.props.history.goBack();
     };
 
+    handleJoinPress = () => {
+
+    };
+
     render() {
         return (
             <Container>
@@ -21,7 +25,9 @@ export default class Activity extends React.Component {
                     <Body>
                     </Body>
                     <Right>
-
+                        <Button transparent onPress={this.handleJoinPress}>
+                            <Text>Join</Text>
+                        </Button>
                     </Right>
                 </Header>
                 <Tabs>

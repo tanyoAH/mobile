@@ -15,6 +15,7 @@ class ItineraryTab extends React.Component {
             <View>
                 <List>
                     <ItineraryItem
+                        onPress={this.handleItemPress('test')}
                         name="Dragon Boating"
                         location="Sai Kung Beach"
                         members={11}
@@ -26,4 +27,4 @@ class ItineraryTab extends React.Component {
     }
 }
 
-export default ItineraryTab;
+export default withRouter(ItineraryTab);

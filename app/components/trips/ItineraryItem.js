@@ -10,14 +10,17 @@ export default class ItineraryItem extends React.Component {
         location: PropTypes.string,
         members: PropTypes.number,
         time: PropTypes.string,
+        onPress: PropTypes.func,
     };
 
     render() {
-        const { name, location, members, time } = this.props;
+        const { name, location, members, time, onPress } = this.props;
         console.log(this.props);
 
         return (
-            <ListItem>
+            <ListItem
+                onPress={onPress}
+            >
                 <Body>
                     <Text>{name}</Text>
                     <Text>{location}</Text>
