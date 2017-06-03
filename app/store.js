@@ -1,13 +1,10 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'remote-redux-devtools';
-
 import reducers from './reducers';
 
-const composeEnhancers = composeWithDevTools({ realtime: true});
 export default createStore(
     reducers,
-    composeEnhancers(
+    compose(
         applyMiddleware(thunk)
     )
 );

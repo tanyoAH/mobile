@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MyProfileScreen from '../screens/MyProfile';
 import TripsScreen from '../screens/Trips';
+import NotificationsScreen from '../screens/Notifications';
 
 export const AppNavigator = StackNavigator({
     Trips: {
@@ -12,6 +13,11 @@ export const AppNavigator = StackNavigator({
     MyProfile: {
         screen: MyProfileScreen,
     },
+    Notifications: {
+        screen: NotificationsScreen,
+    }
+}, {
+    initialRouteName: 'Trips',
 });
 
 const AppWithNavigationState = ({ dispatch, nav }) => (
