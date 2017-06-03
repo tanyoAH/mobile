@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'native-base';
 
-export default class ActivitiesTab extends React.Component {
+export default class UsersTab extends React.Component {
 
     render() {
         return (
@@ -10,4 +10,5 @@ export default class ActivitiesTab extends React.Component {
             </View>
         )
     }
+
 }

@@ -4,6 +4,7 @@ import NotificationsScreen from './screens/Notifications';
 import TripsScreen from './screens/Trips';
 import TripsCreatorScreen from './screens/TripsCreator';
 import TripScreen from './screens/Trip/index';
+import ActivityScreen from './screens/Activity/index';
 import React from 'react';
 
 export default () => (
@@ -32,6 +33,10 @@ export default () => (
           <Route
               path="/trips/:tripId"
               component={TripScreen}
+          />
+          <Route
+              path="/activities/:activityId"
+              component={ActivityScreen}
           />
       </Switch>
   </NativeRouter>

@@ -1,18 +1,15 @@
 import React from 'react';
-import { Container, Header, Tabs, Tab, Button, Title, Left, Icon, Body, TabHeading, Text } from 'native-base';
-import { connect } from 'react-redux';
-import { selectTripTab } from '../../selectors';
-import ItineraryTab from './ItineraryTab';
-import ActivitiesTab from './ActivitiesTab';
+import { Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
+import OverviewTab from './OverviewTab';
+import UsersTab from './UsersTab';
 
-class Trip extends React.Component {
+export default class Activity extends React.Component {
 
     handleBackPress = () => {
         this.props.history.goBack();
-    }
+    };
 
     render() {
-
         return (
             <Container>
                 <Header hasTabs>
@@ -22,34 +19,35 @@ class Trip extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title></Title>
                     </Body>
+                    <Right>
+
+                    </Right>
                 </Header>
                 <Tabs>
                     <Tab
                         heading={
                             <TabHeading>
                                 <Icon name="md-list-box" />
-                                <Text>Itinerary</Text>
+                                <Text>Overview</Text>
                             </TabHeading>
                         }
                     >
-                        <ItineraryTab />
+                        <OverviewTab />
                     </Tab>
                     <Tab
                         heading={
                             <TabHeading>
-                                <Icon name="md-partly-sunny" />
-                                <Text>Activities</Text>
+                                <Icon name="md-people" />
+                                <Text>Participants</Text>
                             </TabHeading>
                         }
                     >
-                        <ActivitiesTab />
+                        <UsersTab />
                     </Tab>
                 </Tabs>
             </Container>
         )
     }
-}
 
-export default Trip;
+}

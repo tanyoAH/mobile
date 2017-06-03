@@ -14,12 +14,13 @@ export default class ItineraryItem extends React.Component {
 
     render() {
         const { name, location, members, time } = this.props;
+        console.log(this.props);
 
         return (
             <ListItem>
                 <Body>
                     <Text>{name}</Text>
-                    <Text note>{location}</Text>
+                    <Text>{location}</Text>
                     <Text note>{members} people going</Text>
                 </Body>
                 <Right>
