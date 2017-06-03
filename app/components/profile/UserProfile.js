@@ -32,22 +32,32 @@ class UserProfile extends Component {
         return (
             <View>
                 <View style={styles.container}>
-                    <Image source={require('../../img/kris.jpg')} style={styles.image}/>
-                    <Text style={styles.nameText}>{this.props.name}</Text>
-                    <Text style={styles.emailText}>{this.props.email}</Text>
-
                     <Card style={styles.interestsCard}>
-                        <CardItem header>
-                            <Text>My Interests</Text>
+                        <CardItem>
+                          <Body style={{alignItems: 'center'}}>
+                            <Text style={styles.nameText}>{this.props.name}</Text>                            
+                            <View style={{flexDirection: 'row'}}>
+                                <View><Text style={styles.detailText}>{`${this.props.age}, `}</Text></View>
+                                <View><Icon style={styles.detailIcon} name='pin'/></View>
+                                <View><Text style={styles.detailText}>{this.props.from}</Text></View>
+                            </View>
+                            <Text style={styles.aboutText}>{`"${this.props.about}"`}</Text>                            
+                          </Body>
                         </CardItem>
                         <CardItem>
                           <Body>
+                            <View style={{alignItems: 'flex-start'}}>
+                                <Text>My Interests</Text>
+                            </View>
                             <View style={{flexDirection: 'row', flex: 1, flexWrap: 'wrap'}}>
                                 {interests}
                             </View>
                           </Body>
                         </CardItem>
                     </Card>
+                    <View style={{position: 'absolute',  left: 0, right: 0, top: 6, justifyContent: 'center', alignItems: 'center', elevation: 999}}>
+                        <Image source={require('../../img/kris.jpg')} style={styles.image}/>                        
+                    </View>                                      
                 </View>
             </View>
         )
@@ -56,23 +66,45 @@ class UserProfile extends Component {
 
 var styles = {
   image: {
-    height: 200,
-    borderRadius: 100,
-    width: 200,
+    height: 100,
+    borderRadius: 50,
+    width: 100,
     marginTop: 20,
     borderWidth: 0,
-    borderColor: '#e5e8ff'
+    borderColor: '#e5e8ff',
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 1,
+      height: 3
+    },
+    shadowRadius: 8,
+    shadowOpacity: 1.0
   },
   container : {
-      alignItems : 'center'
+      alignItems : 'center',
+      flexDirection:'column'
   },
   nameText: {
-      fontSize: 30,
+      fontSize: 24,
       fontWeight : 'bold',
-      marginTop: 10
+      marginTop: 30
   },
-  emailText: {
-      fontSize: 16,
+  detailText: {
+      fontSize: 18,
+      marginTop: 6,
+      color: '#888888'
+  },
+  aboutText: {
+      fontSize: 20,
+      marginTop: 20,
+      color: '#aaaaaa',
+      fontStyle: 'italic'
+  },
+  detailIcon: {
+      fontSize: 18,
+      marginTop: 8,
+      marginRight: 4,
+      marginLeft: 4,
       color: '#888888'
   },
   intrestsText: {
@@ -82,7 +114,10 @@ var styles = {
   },
   interestsCard: {
       width: 320,
-      marginTop: 20
+      marginTop: 90,
+      zIndex: 0,
+      overflow: 'visible',
+
   }
 }
 

@@ -18,7 +18,11 @@ class MyProfileScreen extends React.Component {
                     </Body>
                 </Header>
                 <Content>
-                    <UserProfile name='Kris Machowski' email='kris.machowski@gmail.com' interests={['skiing', 'snorkelling', 'climbing', 'hacking', 'hiking']}/>
+                    <UserProfile name='Kris Machowski' 
+                    age={28}
+                    from='Krakow'
+                    about="I hate literally everything. Don't ever contact me, lest you realise the crushing weight of existence."
+                    interests={['skiing', 'snorkelling', 'climbing', 'hacking', 'hiking']}/>
                 </Content>
                 <FooterTabs />
             </Container>
