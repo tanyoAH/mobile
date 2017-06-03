@@ -12,10 +12,9 @@ class TripsScreen extends React.Component {
             <Container>
                 <Header>
                     <Body>
-                        <Title>Header</Title>
+                        <Title>Trips</Title>
                     </Body>
                 </Header>
-                <Header/>
                 <Content>
                     <TripList />
                 </Content>
