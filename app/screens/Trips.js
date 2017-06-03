@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Content, Container, Header} from 'native-base';
 import FooterTabs from '../components/common/FooterTabs';
 import TripsFAB from '../components/trips/TripsFAB';
+import TripList from '../components/trips/TripList';
 
 class TripsScreen extends React.Component {
 
@@ -11,6 +12,7 @@ class TripsScreen extends React.Component {
             <Container>
                 <Header/>
                 <Content>
+                    <TripList />
                 </Content>
                 <FooterTabs/>
                 <TripsFAB/>
