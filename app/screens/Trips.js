@@ -1,17 +1,15 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Content, Container } from 'native-base';
-import FooterTabs from '../components/FooterTabs';
+import FooterTabs from '../components/common/FooterTabs';
+import TripsFAB from '../components/trips/TripsFAB';
 
 class TripsScreen extends React.Component {
-
-    static navigationOptions = {
-        title: 'Trips',
-    };
 
     render() {
         return (
             <Container>
+                <TripsFAB />
                 <Content>
                 </Content>
                 <FooterTabs/>

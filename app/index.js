@@ -9,9 +9,7 @@ export default class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Container>
-                    <Routes />
-                </Container>
+                <Routes />
             </Provider>
         );
     }

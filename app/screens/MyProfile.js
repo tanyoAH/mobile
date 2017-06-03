@@ -1,6 +1,6 @@
 import React from 'react';
 import { Content, Container } from 'native-base';
-import FooterTabs from '../components/FooterTabs';
+import FooterTabs from '../components/common/FooterTabs';
 
 class MyProfileScreen extends React.Component {
 

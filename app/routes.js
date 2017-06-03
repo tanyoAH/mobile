@@ -2,6 +2,7 @@ import { NativeRouter, Route, Switch } from 'react-router-native';
 import MyProfileScreen from './screens/MyProfile';
 import NotificationsScreen from './screens/Notifications';
 import TripsScreen from './screens/Trips';
+import TripsCreatorScreen from './screens/TripsCreator';
 import React from 'react';
 
 export default () => (
@@ -21,6 +22,11 @@ export default () => (
               exact
               path="/notifications"
               component={NotificationsScreen}
+          />
+          <Route
+              exact
+              path="/tripsCreator"
+              component={TripsCreatorScreen}
           />
       </Switch>
   </NativeRouter>
