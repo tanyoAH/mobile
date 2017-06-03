@@ -33,6 +33,12 @@ class TripItem extends React.Component {
                         </Body>
                     </Left>
                 </CardItem>
+                <CardItem cardBody>
+                    <Image
+                        style={{ height: 180, width: '100%' }}
+                        source={{ uri: 'https://i2.cdn.cnn.com/cnnnext/dam/assets/140417130634-10-things-hk-skyscrapers-horizontal-large-gallery.jpg' }}
+                    />
+                </CardItem>
                 <CardItem>
                     <Icon name="md-calendar" />
                     <Text
