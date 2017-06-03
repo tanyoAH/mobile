@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content, Container } from 'native-base';
+import { Content, Container, Header, Body, Title} from 'native-base';
 import FooterTabs from '../components/common/FooterTabs';
 
 class MyProfileScreen extends React.Component {
@@ -11,6 +11,11 @@ class MyProfileScreen extends React.Component {
     render() {
         return (
             <Container>
+                <Header>
+                    <Body>
+                        <Title>My Profile</Title>
+                    </Body>
+                </Header>
                 <Content>
 
                 </Content>

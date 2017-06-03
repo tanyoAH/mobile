@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Content, Container, Header} from 'native-base';
+import { Content, Container, Header, Body, Title} from 'native-base';
 import FooterTabs from '../components/common/FooterTabs';
 import TripsFAB from '../components/trips/TripsFAB';
 import TripList from '../components/trips/TripList';
@@ -10,7 +10,11 @@ class TripsScreen extends React.Component {
     render() {
         return (
             <Container>
-                <Header/>
+                <Header>
+                    <Body>
+                        <Title>Header</Title>
+                    </Body>
+                </Header>
                 <Content>
                     <TripList />
                 </Content>
