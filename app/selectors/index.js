@@ -31,3 +31,8 @@ export const selectTripsLoading = () => createSelector(
     selectMainDomain(),
     (state) => state.get('tripsLoading'),
 );
+
+export const selectNotifications = () => createSelector(
+    selectMainDomain(),
+    (state) => state.get('notifications').toJS(),
+);

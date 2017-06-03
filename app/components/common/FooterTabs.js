@@ -2,6 +2,9 @@ import React from 'react';
 
 import { withRouter } from 'react-router-native';
 import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
+import { connect } from 'react-redux';
+import { selectNotifications } from '../../selectors';
+import { createStructuredSelector } from 'reselect';
 
 class FooterTabs extends React.Component {
 
@@ -10,7 +13,8 @@ class FooterTabs extends React.Component {
     };
 
     render() {
-        const { location: { pathname } } = this.props;
+        const { location: { pathname }, notifications } = this.props;
+        console.log(notifications);
 
         return (
             <Footer>
@@ -27,9 +31,14 @@ class FooterTabs extends React.Component {
                         onPress={this.handleTabClick('/notifications')}
                         active={pathname === '/notifications'}
                         vertical
-                        badge
+                        badge={!!notifications.length}
                     >
-                        <Badge danger><Text>2</Text></Badge>                    
+                            <Badge danger>
+                                {!!notifications.length &&
+                                  <Text>{notifications.length}</Text>
+                                }
+
+                            </Badge>
                         <Icon name="md-notifications"/>
                         <Text>Notifications</Text>
                     </Button>
@@ -47,5 +56,8 @@ class FooterTabs extends React.Component {
     }
 }
 
+const mapStateToProps = createStructuredSelector({
+    notifications: selectNotifications(),
+});
 
-export default withRouter(FooterTabs);
+export default withRouter(connect(mapStateToProps)(FooterTabs));
