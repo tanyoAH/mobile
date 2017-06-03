@@ -16,6 +16,7 @@ class TripsFAB extends React.Component {
                 containerStyle={{ bottom: 70}}
                 direction="up"
                 position="bottomRight"
+                style = {{backgroundColor: '#e2771f'}}
             >
                 <Icon
                     name="md-add"

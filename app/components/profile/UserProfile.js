@@ -12,9 +12,9 @@ class UserProfile extends Component {
 
     render() {
         // Get the interests into an array
-        let interests = this.props.interests.map((interest) => {
+        let interests = this.props.interests.map((interest,i) => {
             return (
-                <View style={{marginRight: 8, marginTop: 8}}>
+                <View key={i} style={{marginRight: 8, marginTop: 8}}>
                     <Badge primary>
                         <Text>{interest}</Text>
                     </Badge>
@@ -23,7 +23,7 @@ class UserProfile extends Component {
         })
         // Add the final + sign
         interests.push(
-            <View>
+            <View key={interests.length+1}>
                 <Badge success style={{width : 40, marginTop: 8}}>
                     <Text>+</Text>
                 </Badge>

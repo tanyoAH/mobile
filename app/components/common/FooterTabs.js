@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { withRouter } from 'react-router-native';
-import { Footer, FooterTab, Button, Icon, Text,  } from 'native-base';
+import { Footer, FooterTab, Button, Icon, Text, Badge } from 'native-base';
 
 class FooterTabs extends React.Component {
 
@@ -27,7 +27,9 @@ class FooterTabs extends React.Component {
                         onPress={this.handleTabClick('/notifications')}
                         active={pathname === '/notifications'}
                         vertical
+                        badge
                     >
+                        <Badge danger><Text>2</Text></Badge>                    
                         <Icon name="md-notifications"/>
                         <Text>Notifications</Text>
                     </Button>
