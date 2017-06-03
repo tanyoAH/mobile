@@ -1,11 +1,11 @@
 import React from 'react';
-import { Icon, Fab, Button, Content } from 'native-base';
+import { Icon, Fab, Button, Content, View, Text, StyleSheet } from 'native-base';
 import { withRouter } from 'react-router-native'
 
 class TripsFAB extends React.Component {
 
     state = {
-        active: false,
+        active: false
     };
 
     handlePress = () => {
@@ -14,18 +14,18 @@ class TripsFAB extends React.Component {
 
     toggleActive = () => {
         this.setState({
-            active: !this.state.active,
+            active: !this.state.active
         })
     }
 
     render() {
-
         return (
             <Fab
-                active={false}
-                onPress={this.toggleActive}
-                direction="down"
-                style={{ bottom: 65 }}
+                active={this.state.active}
+                onPress={() => this.toggleActive()}
+                containerStyle={{ bottom: 70}}
+                direction="up"
+                position="bottomRight"
             >
                 <Icon
                     name="md-add"
@@ -37,5 +37,11 @@ class TripsFAB extends React.Component {
         )
     }
 }
+
+// let styles = StyleSheet.create({
+//     container: {
+//         height: 1
+//     }
+// })
 
 export default TripsFAB;
