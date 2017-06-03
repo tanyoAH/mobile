@@ -43,12 +43,12 @@ class UserProfile extends Component {
                         <Text style={styles.aboutText}>{`"${this.props.about}"`}</Text>
                       </Body>
                     </CardItem>
-                    <CardItem>
+                    <CardItem style={{ height: 300 }}>
                       <Body>
                         <View style={{alignItems: 'flex-start'}}>
                             <Text>My Interests</Text>
                         </View>
-                        <View style={{flexDirection: 'row', flex: 1, flexWrap: 'wrap'}}>
+                        <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                             {interests}
                         </View>
                       </Body>
@@ -96,6 +96,7 @@ var styles = {
   },
   aboutText: {
       fontSize: 20,
+      height: 20,
       marginTop: 20,
       color: '#aaaaaa',
       fontStyle: 'italic'
