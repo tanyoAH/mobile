@@ -2,7 +2,7 @@ import React from 'react';
 import ActivityItem from '../../components/trips/ActivityItem';
 import { withRouter } from 'react-router-native';
 import { getActivityRecommendations } from '../../http';
-import { Card, Content, Text } from 'native-base';
+import { Spinner, Content, Text } from 'native-base';
 import { connect } from 'react-redux';
 import { selectTripId } from '../../selectors';
 import { createStructuredSelector } from 'reselect';
@@ -11,6 +11,7 @@ class ActivitiesCarousel extends React.Component {
 
     state = {
         activities: [],
+        loading: true,
     };
 
     async componentDidMount() {
@@ -19,6 +20,7 @@ class ActivitiesCarousel extends React.Component {
             console.log(data);
             this.setState({
                 activities: data,
+                loading: false,
             });
         } catch (err) {
             console.log(err);
@@ -42,13 +44,16 @@ class ActivitiesCarousel extends React.Component {
     );
 
     render() {
-        const { activities } = this.state;
+        const { activities, loading } = this.state;
         const { filterActivities } = this.props;
         const output = activities.filter((act) => filterActivities.findIndex((ac) => ac === act.id) === -1);
 
         return (
             <Content>
-                {output.length ? output.map(this.renderCard) : <Text style={{ textAlign: 'center', marginTop: 15}}>No recommended activities found!</Text>}
+                {loading ?
+                    <Spinner /> :
+                    output.length ? output.map(this.renderCard) : <Text style={{ textAlign: 'center', marginTop: 15}}>No recommended activities found!</Text>
+                }
             </Content>
         )
     }

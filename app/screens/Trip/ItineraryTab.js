@@ -40,7 +40,7 @@ class ItineraryTab extends React.Component {
         return (
             <Content>
                 <List>
-                    {output}
+                    {output.length ? output : <Text style={{ textAlign: 'center', marginTop: 8 }}>No activities on the itinerary</Text>}
                 </List>
             </Content>
         )

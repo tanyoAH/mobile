@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Tabs, Tab, Button, Title, Left, Icon, Body, TabHeading, Text } from 'native-base';
+import { Spinner, Container, Header, Tabs, Tab, Button, Title, Left, Icon, Body, TabHeading, Text } from 'native-base';
 import { connect } from 'react-redux';
 import { setTripId } from '../../actions/trips';
 import { bindActionCreators } from 'redux';
@@ -55,9 +55,13 @@ class Trip extends React.Component {
                             </TabHeading>
                         }
                     >
-                        <ItineraryTab
-                            activities={trip ? trip.activities : []}
-                        />
+                        {trip ?
+                            <ItineraryTab
+                                activities={trip.activities}
+                            /> :
+                            <Spinner />
+                        }
+
                     </Tab>
                     <Tab
                         heading={
