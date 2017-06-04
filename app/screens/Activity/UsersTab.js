@@ -24,6 +24,7 @@ class UsersTab extends React.Component {
                         <ParticipantItem
                             key={participant.id}
                             onPress={this.handleParticipantPress(participant.id)}
+                            name={participant.fullName}
                             location={participant.from}
                             imageUrl={participant.profileUrl}
                             age={participant.age}
