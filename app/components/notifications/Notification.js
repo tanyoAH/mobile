@@ -4,7 +4,7 @@ import {Body, Title, List, ListItem, Text, Thumbnail, Left, Right, Icon} from 'n
 export class UserJoinedNotification extends React.Component {
     render() {
         return (
-            <ListItem avatar style={{marginTop: 0, marginLeft: 0, padding: 4, backgroundColor: this.props.fresh ? '#f9e2c0' : '#fff'}}>
+            <ListItem avatar style={{marginTop: 0, marginLeft: 0, padding: 0, backgroundColor: this.props.fresh ? '#f9e2c0' : '#fff'}}>
                 <Left style={{width:56}}>
                     {/*<Thumbnail source={require('../../img/kris.jpg')} />*/}
                     <Icon style={styles.icon} name="md-person" />
@@ -28,7 +28,7 @@ export class NewActivityNotification extends React.Component {
 
     render() {
         return (
-            <ListItem avatar style={{marginTop: 0, marginLeft: 0, padding: 4, backgroundColor: this.props.fresh ? '#f9e2c0' : '#fff'}}>
+            <ListItem avatar style={{marginTop: 0, marginLeft: 0, padding: 0, backgroundColor: this.props.fresh ? '#f9e2c0' : '#fff'}}>
                 <Left style={{width:56}}>
                     <Icon style={styles.icon} name="md-notifications" />
                 </Left>
