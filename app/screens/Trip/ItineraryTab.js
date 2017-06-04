@@ -16,6 +16,15 @@ class ItineraryTab extends React.Component {
         return (
             <View>
                 <List>
+                    <ItineraryItem
+                        key={1}
+                        onPress={this.handleItemPress(1)}
+                        name="Testing"
+                        time={{
+                            start: new Date(1111),
+                            end: new Date(22)
+                        }}
+                    />
                     {activities.map((activity) =>
                         <ItineraryItem
                             key={activity.id}

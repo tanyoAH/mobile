@@ -5,7 +5,6 @@ import Routes from './routes';
 import { StyleProvider, getTheme} from 'native-base';
 import tanyoTheme from './themes/tanyoTheme';
 
-
 export default class App extends React.Component {
 
     render() {
@@ -18,3 +17,4 @@ export default class App extends React.Component {
         );
     }
 }
+

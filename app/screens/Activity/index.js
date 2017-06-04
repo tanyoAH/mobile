@@ -1,5 +1,5 @@
 import React from 'react';
-import { Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
+import { ActionSheet, Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
 import OverviewTab from './OverviewTab';
 import UsersTab from './UsersTab';
 import { connect } from 'react-redux';
@@ -7,11 +7,25 @@ import { bindActionCreators } from 'redux';
 import { setActivityId } from '../../actions/trips';
 import { selectActivityId, selectTripId } from '../../selectors';
 import { createStructuredSelector } from 'reselect';
+import { getActivity } from '../../http';
 
 class Activity extends React.Component {
 
-    componentDidMount() {
-        this.props.setActivityId(this.props.match.params.activityId);
+    state = {
+        activity: null,
+    };
+
+    async componentDidMount() {
+        const activityId = this.props.match.params.activityId;
+        this.props.setActivityId(activityId);
+        try {
+            const { data: { data }} = await getActivity(this.props.tripId, activityId);
+            this.setState({
+                activity: data,
+            })
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     handleBackPress = () => {
@@ -19,11 +33,23 @@ class Activity extends React.Component {
     };
 
     handleJoinPress = () => {
-
+        ActionSheet.show({
+            options: [
+                'PayPal',
+                'Credit Card',
+                'Cancel'
+            ],
+            cancelButtonIndex: 2,
+            title: 'Pay with'
+        }, (index) => {
+            console.log(`${index} clicked`);
+        });
     };
 
     render() {
         const { activityId, tripId } = this.props;
+        const { activity } = this.state;
+        console.log(activity);
 
         return (
             <Container>
@@ -34,6 +60,7 @@ class Activity extends React.Component {
                         </Button>
                     </Left>
                     <Body>
+                        <Title>{!!activity && activity.name}</Title>
                     </Body>
                     <Right>
                         <Button transparent onPress={this.handleJoinPress}>
@@ -51,8 +78,7 @@ class Activity extends React.Component {
                         }
                     >
                         <OverviewTab
-                            tripId={tripId}
-                            activityId={activityId}
+                            activity={activity}
                         />
                     </Tab>
                     <Tab
