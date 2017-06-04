@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { setActivityId } from '../../actions/trips';
 import { selectActivityId, selectTripId } from '../../selectors';
 import { createStructuredSelector } from 'reselect';
-import { getActivity } from '../../http';
+import { getActivity, createCommitment } from '../../http';
 
 class Activity extends React.Component {
 
@@ -18,8 +18,13 @@ class Activity extends React.Component {
     async componentDidMount() {
         const activityId = this.props.match.params.activityId;
         this.props.setActivityId(activityId);
+        await this.loadData();
+    }
+
+    loadData = async () => {
+        const activityId = this.props.match.params.activityId;
         try {
-            const { data: { data }} = await getActivity(this.props.tripId, activityId);
+            const { data: { data }}  = await getActivity(this.props.tripId, activityId);
             this.setState({
                 activity: data,
             })
@@ -41,13 +46,15 @@ class Activity extends React.Component {
             ],
             cancelButtonIndex: 2,
             title: 'Pay with'
-        }, (index) => {
-            console.log(`${index} clicked`);
+        }, async (index) => {
+            if (index !== 2) {
+                await createCommitment(this.props.tripId, this.props.activityId);
+                await this.loadData();
+            }
         });
     };
 
     render() {
-        const { activityId, tripId } = this.props;
         const { activity } = this.state;
         console.log(activity);
 
@@ -62,11 +69,13 @@ class Activity extends React.Component {
                     <Body>
                         <Title>{!!activity && activity.name}</Title>
                     </Body>
-                    <Right>
-                        <Button transparent onPress={this.handleJoinPress}>
-                            <Text>Join</Text>
-                        </Button>
-                    </Right>
+                    {!!activity && !activity.isCommitted &&
+                        <Right>
+                            <Button transparent onPress={this.handleJoinPress}>
+                                <Text>Join</Text>
+                            </Button>
+                        </Right>
+                    }
                 </Header>
                 <Tabs>
                     <Tab
@@ -78,7 +87,7 @@ class Activity extends React.Component {
                         }
                     >
                         <OverviewTab
-                            activity={activity}
+                            activity={activity || null}
                         />
                     </Tab>
                     <Tab
@@ -90,8 +99,7 @@ class Activity extends React.Component {
                         }
                     >
                         <UsersTab
-                            tripId={tripId}
-                            activityId={activityId}
+                            participants={activity ? activity.committedUsers : []}
                         />
                     </Tab>
                 </Tabs>

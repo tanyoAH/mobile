@@ -19,7 +19,7 @@ export default class SliderEntry extends Component {
         const { budget, thumbnailUrl, name, time, onPress } = this.props;
 
         return (
-            <Card onPress={onPress}>
+            <Card onPress={onPress} style={{ elevation: 3 }}>
                 <CardItem>
                     <Left>
                         <Body>

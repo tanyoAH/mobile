@@ -10,6 +10,16 @@ import { addNotification } from './actions/trips';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { WS_URL } from './constants';
+import PushNotification from 'react-native-push-notification';
+
+// PushNotification.configure({
+//     requestPermissions: true,
+//     popInitialNotification: true,
+// });
+// PushNotification.localNotificationSchedule({
+//     message: "My Notification Message", // (required)
+//     date: new Date(Date.now() + (60 * 1000)) // in 60 secs
+// });
 
 class Routes extends React.Component {
 

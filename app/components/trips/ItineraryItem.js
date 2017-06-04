@@ -10,7 +10,7 @@ export default class ItineraryItem extends React.Component {
         name: PropTypes.string,
         location: PropTypes.string,
         members: PropTypes.number,
-        time: PropTypes.Object,
+        time: PropTypes.object,
         onPress: PropTypes.func,
     };
 

@@ -41,8 +41,9 @@ export function commitToActivity(id) {
     return client.post(`/activities/${id}/commitments`)
 }
 
-export const getAllCommitments = (tripId, activityId) =>
-    client.get(`/trips/${tripId}/activities/${activityId}/commitments`);
+export const createCommitment = (tripId, activityId) =>
+    client.post(`/trips/${tripId}/activities/${activityId}/commitments`, {});
 
 // Profile Endpoints
 export const getMyProfile = () => client.get('/me');
+export const getUser = (userId) => client.get(`/users/${userId}`);

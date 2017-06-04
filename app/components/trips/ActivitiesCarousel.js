@@ -2,7 +2,7 @@ import React from 'react';
 import ActivityItem from './ActivityItem';
 import { withRouter } from 'react-router-native';
 import { getActivityRecommendations } from '../../http';
-import { DeckSwiper } from 'native-base';
+import { DeckSwiper, View } from 'native-base';
 import { connect } from 'react-redux';
 import { selectTripId } from '../../selectors';
 import { createStructuredSelector } from 'reselect';
@@ -19,6 +19,7 @@ class ActivitiesCarousel extends React.Component {
             this.setState({
                 activities: data,
             });
+            console.log(data);
         } catch (err) {
             console.log(err);
         }
