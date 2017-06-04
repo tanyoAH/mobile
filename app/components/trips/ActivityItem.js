@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Image, TouchableHighlight } from 'react-native';
 import strftime from 'strftime';
-import { Card, CardItem, Left, Body, Text, Thumbnail, Grid, Row, Icon, Right, Button } from 'native-base';
+import { Card, CardItem, Left, Body, Text, Badge, Grid, Row, Icon, Right, Button } from 'native-base';
 
 export default class ActivityItem extends Component {
 
@@ -16,7 +16,7 @@ export default class ActivityItem extends Component {
 
 
     render () {
-        const { budget, thumbnailUrl, name, time, onPress } = this.props;
+        const { budget, thumbnailUrl, name, time, onPress, index } = this.props;
         console.log(time);
 
         return (
@@ -31,9 +31,11 @@ export default class ActivityItem extends Component {
                             <Row>
                                 <Icon name="md-time" style={{ fontSize: 19 }}/>
                                 <Text note>  {strftime('%I:%M', new Date(time.start))} - {strftime('%I:%M%P', new Date(time.end))}</Text>
+                                {index < 2 && <Right style={{ alignItems: 'flex-end'}}>
+                                    <Badge style={{ marginTop: -5}} success><Text>Sponsored</Text></Badge>
+                                </Right>}
                             </Row>
                         </Grid>
-
                         </Body>
                     </Left>
                 </CardItem>

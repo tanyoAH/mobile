@@ -31,14 +31,7 @@ class FooterTabs extends React.Component {
                         onPress={this.handleTabClick('/notifications')}
                         active={pathname === '/notifications'}
                         vertical
-                        badge={!!notifications.length}
                     >
-                            <Badge danger>
-                                {!!notifications.length &&
-                                  <Text>{notifications.length}</Text>
-                                }
-
-                            </Badge>
                         <Icon name="md-notifications"/>
                         <Text>Notifications</Text>
                     </Button>

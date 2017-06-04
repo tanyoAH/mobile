@@ -32,8 +32,9 @@ class ActivitiesCarousel extends React.Component {
         this.props.history.push(`/activities/${id}`);
     };
 
-    renderCard = (item) => (
+    renderCard = (item, idx) => (
         <ActivityItem
+            index={idx}
             key={item.id}
             budget={item.price}
             name={item.name}
