@@ -1,6 +1,7 @@
 import React from 'react';
 import { Spinner, ActionSheet, Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
 import OverviewTab from './OverviewTab';
+import ChatTab from './ChatTab';
 import UsersTab from './UsersTab';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -105,6 +106,16 @@ class Activity extends React.Component {
                         <UsersTab
                             participants={activity ? activity.committedUsers : []}
                         />
+                    </Tab>
+                    <Tab
+                        heading={
+                            <TabHeading>
+                                <Icon name="md-chatboxes" />
+                                <Text>Chat</Text>
+                            </TabHeading>
+                        }
+                    >
+                        <ChatTab/>
                     </Tab>
                 </Tabs>
             </Container>
