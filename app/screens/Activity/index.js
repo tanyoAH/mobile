@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionSheet, Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
+import { Spinner, ActionSheet, Right, Body, Container, Header, Tabs, Tab, Left, Button, Icon, TabHeading, Text, Title } from 'native-base';
 import OverviewTab from './OverviewTab';
 import UsersTab from './UsersTab';
 import { connect } from 'react-redux';
@@ -86,9 +86,13 @@ class Activity extends React.Component {
                             </TabHeading>
                         }
                     >
-                        <OverviewTab
-                            activity={activity || null}
-                        />
+                        {activity ?
+                            <OverviewTab
+                                activity={activity}
+                            /> :
+                            <Spinner />
+                        }
+
                     </Tab>
                     <Tab
                         heading={

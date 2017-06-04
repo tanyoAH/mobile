@@ -7,6 +7,7 @@ export const SET_ACTIVITY_ID = 'SET_ACTIVITY_ID';
 export const SET_TRIPS_LOADING = 'SET_TRIPS_LOADING';
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
 export const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
+export const SET_USER_ID = 'SET_USER_ID';
 
 export const removeNotification = (notifId) => ({
     type: REMOVE_NOTIFICATION,
@@ -54,3 +55,7 @@ export const setActivityId = (activityId) => ({
     activityId,
 });
 
+export const setUserId = (userId) => ({
+    type: SET_USER_ID,
+    userId,
+});

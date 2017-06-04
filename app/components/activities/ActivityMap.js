@@ -9,17 +9,6 @@ export default class ActivityMap extends React.Component {
         coordinates: PropTypes.object,
     };
 
-    async componentDidMount() {
-        try {
-            const { data: {data}} = await getActivity();
-            this.setState({
-                activity: data,
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
     render() {
         const { coordinates } = this.props;
 

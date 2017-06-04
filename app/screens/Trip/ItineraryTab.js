@@ -1,7 +1,9 @@
 import React from 'react';
-import { List, View } from 'native-base';
+import { List, View, Content, ListItem, Text } from 'native-base';
 import ItineraryItem from '../../components/trips/ItineraryItem'
 import { withRouter } from 'react-router-native';
+import strftime from 'strftime'
+import * as _ from 'lodash';
 import { createStructuredSelector } from 'reselect';
 
 class ItineraryTab extends React.Component {
@@ -12,29 +14,35 @@ class ItineraryTab extends React.Component {
 
     render() {
         const { activities } = this.props;
+        let output = [];
+        let prevDay = null;
+
+        for (let activity of _.sortBy(activities, (act) => act.timePeriod.start)) {
+            const currDate = new Date(activity.timePeriod.start);
+            if (!prevDay || prevDay !== currDate.getDay()) {
+                output.push(
+                    <ListItem itemHeader key={`${activity.id}test`}>
+                        <Text>{strftime('%b %d', currDate)}</Text>
+                    </ListItem>
+                );
+                prevDay = currDate.getDay();
+            }
+            output.push(
+                <ItineraryItem
+                    key={activity.id}
+                    onPress={this.handleItemPress(activity.id)}
+                    name={activity.name}
+                    time={activity.timePeriod}
+                />
+            )
+        }
 
         return (
-            <View>
+            <Content>
                 <List>
-                    <ItineraryItem
-                        key={1}
-                        onPress={this.handleItemPress(1)}
-                        name="Testing"
-                        time={{
-                            start: new Date(1111),
-                            end: new Date(22)
-                        }}
-                    />
-                    {activities.map((activity) =>
-                        <ItineraryItem
-                            key={activity.id}
-                            onPress={this.handleItemPress(activity.id)}
-                            name={activity.name}
-                            time={activity.timePeriod}
-                        />
-                    )}
+                    {output}
                 </List>
-            </View>
+            </Content>
         )
     }
 }

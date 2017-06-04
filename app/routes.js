@@ -10,6 +10,7 @@ import { addNotification } from './actions/trips';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { WS_URL } from './constants';
+import ProfileScreen from './screens/Profile';
 import PushNotification from 'react-native-push-notification';
 
 // PushNotification.configure({
@@ -61,6 +62,10 @@ class Routes extends React.Component {
                     <Route
                         path="/activities/:activityId"
                         component={ActivityScreen}
+                    />
+                    <Route
+                        path="/users/:userId"
+                        component={ProfileScreen}
                     />
                 </Switch>
             </NativeRouter>

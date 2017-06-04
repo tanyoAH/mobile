@@ -32,7 +32,7 @@ class Trip extends React.Component {
 
     render() {
         const { trip } = this.state;
-        console.log(trip);
+        const filterActivities = trip ? trip.activities.map((act) => act.id) : [];
 
         return (
             <Container>
@@ -68,6 +68,7 @@ class Trip extends React.Component {
                         }
                     >
                         <ActivitiesTab
+                            filterActivities={filterActivities}
                         />
                     </Tab>
                 </Tabs>

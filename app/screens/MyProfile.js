@@ -3,6 +3,9 @@ import { Content, Container, Header, Body, Title, StyleProvider, getTheme, mater
 import FooterTabs from '../components/common/FooterTabs';
 import UserProfile from '../components/profile/UserProfile';
 import { getMyProfile } from '../http';
+import { connect } from 'react-redux';
+import { setUserId } from '../actions/trips';
+import { bindActionCreators } from 'redux'
 
 class MyProfileScreen extends React.Component {
 
@@ -26,6 +29,7 @@ class MyProfileScreen extends React.Component {
                 interests: data.interests,
                 age: data.age,
             });
+            this.props.setUserId(data.id);
         } catch (err) {
             console.log(err);
         }
@@ -61,5 +65,11 @@ class MyProfileScreen extends React.Component {
     }
 }
 
-export default MyProfileScreen;
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators({
+        setUserId,
+    }, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(MyProfileScreen);
 

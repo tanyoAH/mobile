@@ -36,3 +36,8 @@ export const selectNotifications = () => createSelector(
     selectMainDomain(),
     (state) => state.get('notifications').toJS(),
 );
+
+export const selectUserId = () => createSelector(
+    selectMainDomain(),
+    (state) => state.get('userId'),
+);

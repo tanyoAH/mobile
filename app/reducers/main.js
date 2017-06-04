@@ -7,6 +7,7 @@ import {
     SET_TRIPS_LOADING,
     REMOVE_NOTIFICATION,
     ADD_NOTIFICATION,
+    SET_USER_ID,
 } from '../actions/trips';
 
 const initialState = fromJS({
@@ -16,11 +17,14 @@ const initialState = fromJS({
     activityId: null,
     tripsLoading: false,
     notifications: [],
+    userId: null,
 });
 
 export default (state = initialState, action) => {
 
     switch (action.type) {
+        case SET_USER_ID:
+            return state.set('userId', action.userId);
         case REMOVE_NOTIFICATION:
             return state.removeIn(['notifications', state.get('notifications').findIndex((notif) => notif.get('id') === action.id)])
         case ADD_NOTIFICATION:

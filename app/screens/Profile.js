@@ -13,13 +13,13 @@ export default class ProfileScreen extends React.Component {
     async componentDidMount() {
         const userId = this.props.match.params.userId;
         try {
-
-        } catch (err) {
             const { data: { data }} = await getUser(userId);
             this.setState({
                 user: data,
                 loading: false,
             })
+        } catch (err) {
+            console.log(err);
         }
     }
 
@@ -34,12 +34,12 @@ export default class ProfileScreen extends React.Component {
             <Container>
                 <Header>
                     <Left>
-                        <Button onPress={this.handleBackPress}>
-                            <Icon name="md-back" />
+                        <Button transparent onPress={this.handleBackPress}>
+                            <Icon name="md-arrow-back" />
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{user && user.name}'s Profile</Title>
+                        <Title>{user && user.fullName}'s Profile</Title>
                     </Body>
                 </Header>
                 <Content>

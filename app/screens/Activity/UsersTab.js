@@ -6,6 +6,10 @@ import { getAllCommitments } from '../../http';
 
 class UsersTab extends React.Component {
 
+    static defaultProps = {
+        participants: [],
+    }
+
     handleParticipantPress = (id) => () => {
         this.props.history.push(`/users/${id}`)
     };
@@ -25,12 +29,7 @@ class UsersTab extends React.Component {
                             age={participant.age}
                         />
                     )}
-                    <ParticipantItem
-                        onPress={this.handleParticipantPress(1)}
-                        location="Hong Kong"
-                        age="18"
-                        name="Daniel Hsing"
-                    />
+
                 </List>
             </Container>
         )

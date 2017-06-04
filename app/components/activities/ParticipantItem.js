@@ -9,7 +9,7 @@ export default class ParticipantItem extends React.Component {
         name: PropTypes.string,
         age: PropTypes.number,
         location: PropTypes.string,
-        onPress: PropTypes.string,
+        onPress: PropTypes.func,
     };
 
     render() {

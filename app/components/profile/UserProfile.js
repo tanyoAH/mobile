@@ -24,7 +24,7 @@ class UserProfile extends Component {
         // Add the final + sign
         interests.push(
             <View key={interests.length+1}>
-                <Badge success style={{width : 40}}>
+                <Badge success style={{width : 40, marginTop: 8 }}>
                     <Text>+</Text>
                 </Badge>
             </View>
