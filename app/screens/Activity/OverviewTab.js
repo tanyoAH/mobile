@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Text, Grid, Row, Icon, Button } from 'native-base';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
 import { Linking, WebView } from 'react-native';
 import ActivityMap from '../../components/activities/ActivityMap';
 
@@ -41,8 +42,8 @@ export default class UsersTab extends React.Component {
                     </Row>
                     <Row style={{ marginTop: -90}}>
                         <Button onPress={this.handleSitePress}>
-                            <Icon name="md-globe" />
-                            <Text>Official Site</Text>
+                            <EntypoIcon name="tripadvisor" size={24} />
+                            <Text>  TripAdvisor</Text>
                         </Button>
                     </Row>
                 </Grid>
