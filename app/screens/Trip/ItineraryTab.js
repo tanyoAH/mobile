@@ -33,6 +33,7 @@ class ItineraryTab extends React.Component {
                     onPress={this.handleItemPress(activity.id)}
                     name={activity.name}
                     time={activity.timePeriod}
+                    members={activity.peopleGoingCount}
                 />
             )
         }

@@ -31,16 +31,16 @@ export default class UsersTab extends React.Component {
                         <Icon name="md-book" />
                         <Text style={{ marginLeft: 10, marginTop: 4}} note>{activity.description}</Text>
                     </Row>
-                    <Row style={{ marginTop: -90}}>
+                    <Row style={{ marginTop: -50}}>
                         <Icon name="md-time" />
                         <Text style={{ marginLeft: 10, marginTop: 4}} note>{activity.durationHours} hours</Text>
                     </Row>
 
-                    <Row style={{ marginTop: -90}}>
+                    <Row style={{ marginTop: -50}}>
                         <Icon name="md-cash" />
                         <Text style={{ marginLeft: 10, marginTop: 4}} note>{activity.price} per hour</Text>
                     </Row>
-                    <Row style={{ marginTop: -90}}>
+                    <Row style={{ marginTop: -50}}>
                         <Button onPress={this.handleSitePress}>
                             <EntypoIcon name="tripadvisor" size={24} />
                             <Text>  TripAdvisor</Text>
