@@ -30,7 +30,7 @@ export default class ActivityItem extends Component {
                             </Row>
                             <Row>
                                 <Icon name="md-time" style={{ fontSize: 19 }}/>
-                                <Text note>  {strftime('%I:%M', new Date(time.start))} - {strftime('%I:%M', new Date(time.end))}</Text>
+                                <Text note>  {strftime('%I:%M', new Date(time.start))} - {strftime('%I:%M%P', new Date(time.end))}</Text>
                             </Row>
                         </Grid>
 

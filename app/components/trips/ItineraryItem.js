@@ -28,7 +28,7 @@ export default class ItineraryItem extends React.Component {
                     <Text note>{members} people going</Text>
                 </Body>
                 <Right>
-                    <Text>{strftime('%I:%M', new Date(time.start))} - {strftime('%I:%M', new Date(time.end))}</Text>
+                    <Text>{strftime('%I:%M', new Date(time.start))} - {strftime('%I:%M %P', new Date(time.end))}</Text>
                 </Right>
             </ListItem>
         );
